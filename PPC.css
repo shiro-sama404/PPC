@@ -33,7 +33,7 @@ header{
 
 .Titulo{
     color: rgb(255, 255, 255);
-    font-size: 2.5em;
+    font-size: 2.3em;
     word-spacing: 7px;
     letter-spacing: 1px;
     outline: none;
@@ -50,7 +50,7 @@ header{
     width: 80%;
     justify-content: center;
     background-color: rgba(255, 255, 255, 0.5);
-    margin: 2% auto;
+    margin: 1% auto;
 }
 
 /*   Quadro de Semestralização   */
@@ -116,7 +116,7 @@ header{
     padding: 0px;
     display: flex;
     flex-direction: column;
-    justify-content: center;
+    justify-content:space-around;
     font-size: 50%;
     transition: .5s;
     overflow: hidden;
@@ -153,7 +153,7 @@ header{
 
 .Disciplina h1{
     font-size: 1.2em;
-    padding: 10px;
+    padding: 0px 10px;
 }
 
 .Disciplina p{
@@ -165,17 +165,15 @@ header{
     display: contents;
 }
 
-/*   Requisição de Disciplina   */
-
 .Requisita{
     border: 2px solid rgba(255, 255, 255, 0.6);
 }
 
 /*   Cores por Tipo de Disciplina   */
 
-@keyframes BateVolta {
-    0%{transform: translateX(-80px);}
-    100%{transform: translateX(70px);}
+@keyframes Load {
+    0%{transform: translateX(-150%);}
+    100%{transform: translateX(150%);}
 }
 
 .Espace{
@@ -196,7 +194,7 @@ header{
     width: 50%;
     height: 5px;
     background: #00ccff;
-    animation: BateVolta 3s linear infinite;
+    animation: Load 3s linear infinite;
 }
 
 .Humanas{
@@ -205,7 +203,7 @@ header{
     width: 50%;
     height: 5px;
     background: #ffc800;
-    animation: BateVolta 3s linear infinite;
+    animation: Load 3s linear infinite;
 }
 
 .Sistemas{
@@ -214,7 +212,7 @@ header{
     width: 50%;
     height: 5px;
     background: #ff00ea;
-    animation: BateVolta 3s linear infinite;
+    animation: Load 3s linear infinite;
 }
 
 .Programacao{
@@ -223,14 +221,74 @@ header{
     width: 50%;
     height: 5px;
     background: #ff0037;
-    animation: BateVolta 3s linear infinite;
+    animation: Load 3s linear infinite;
+}
+
+/*   Legenda   */
+
+#Legenda{
+    position: relative;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-evenly;
+    width: 100%;
+    margin: 10px 0;
+    font-size: 0.8em;
+    border: 2px solid rgba(255, 255, 255, 0.5);
+    border-radius: 10px;
+    backdrop-filter: blur(200px);
+}
+
+.Card{
+    position: relative;
+    display: flex;
+    flex-direction: row;
+    justify-content:center;
+    align-items: center;
+    width: 16%;
+    height: 100%;
+    border-radius: 8px;
+}
+
+.Card p{
+    display: flex;
+}
+
+.Dot{
+    position: relative;
+    display: flex;
+    height: 10px;
+    width: 10px;
+    border-radius: 50%;
+    margin-right: 5px;
+}
+
+.Hum{
+    background: #ffc800;
+}
+
+.Mat{
+    background:#00ccff;
+}
+
+.Prog{
+    background:#ff0037;
+}
+
+.Sys{
+    background:#ff00ea;
+}
+
+.Req{
+    border-radius: 1px;
+    border: 2px solid rgba(255, 255, 255, 1);
 }
 
 /*   Componentes Curriculares Não Disciplinares   */
 
 #Componentes{
-    margin: 50px 0;
     height: 65%;
+    background: linear-gradient(#ff003731, #ff0037);
 }
 
 #Disciplinares{
