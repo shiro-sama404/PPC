@@ -1,0 +1,1 @@
+var actualHover = document.getElementsByClassName("Disciplina")
