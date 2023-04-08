@@ -1,5 +1,7 @@
 /*               Opções               */
 
+var Disciplinas = document.getElementsByClassName("Disciplina");
+
 var BT_CH_Preview = document.getElementById("CH_preview");
 var BT_SUB_Preview = document.getElementById("SUB_preview");
 
@@ -16,38 +18,60 @@ BT_CH_Preview.addEventListener('click', function (evento) {
             Carga_Horaria[i].style.setProperty('display', 'contents');
             display_CH = true;
         }
+
+        if(!display_Legenda){
+            for(let i = 0; i < Disciplinas.length; i++){
+                Disciplinas[i].style.setProperty('font-size', '0.55vw');
+            }
+        }
     }else{
         for(let i = 0; i < Carga_Horaria.length; i++){
             Carga_Horaria[i].style.setProperty('display', 'none')
             display_CH = false;
         } 
+
+        if(!display_Legenda){
+            for(let i = 0; i < Disciplinas.length; i++){
+                Disciplinas[i].style.setProperty('font-size', '0.65vw');
+            }
+        }
     }
 
 });
 
 BT_SUB_Preview.addEventListener('click', () => {
 
-    console.log("Entrou");
-
     if(!display_Legenda){
-        console.log("Entrou 1");
+
         for(let i = 0; i < Carga_Horaria.length; i++){
             Legendas[i].style.setProperty('display', 'flex');
             display_Legenda = true;
         }
+
+        if(!display_CH){
+            for(let i = 0; i < Disciplinas.length; i++){
+                Disciplinas[i].style.setProperty('font-size', '0.55vw');
+            }
+        }
+
     }else{
-        console.log("Entrou 2");
+
         for(let i = 0; i < Carga_Horaria.length; i++){
             Legendas[i].style.setProperty('display', 'none')
             display_Legenda = false;
         } 
+        if(!display_CH){
+            for(let i = 0; i < Disciplinas.length; i++){
+                Disciplinas[i].style.setProperty('font-size', '0.65vw');
+            }
+        }
+
     }
 
 });
 
 /*               Hover e Requisitos               */
 
-var Disciplinas = document.getElementsByClassName("Disciplina");
 var Semestres = document.getElementsByClassName("Split");
 
 //Primeira linha = Posição que Requista
@@ -109,14 +133,16 @@ function VerificaRequisito(position){
 function PseudoHover(position){
     Disciplinas[position].style.setProperty('height', '20%');
     Disciplinas[position].style.setProperty('width', '100%');
-    Disciplinas[position].style.setProperty('font-size', '63%');
+    Disciplinas[position].style.setProperty('font-size', '0.6vw');
     Disciplinas[position].style.setProperty('background-color', 'rgba(255,255, 255, 0.1)');
 }
 
 function BackToNormal(position){
     Disciplinas[position].style.setProperty('height', '17%');
     Disciplinas[position].style.setProperty('width', '80%');
-    Disciplinas[position].style.setProperty('font-size', '50%');
+    if(!display_CH && !display_Legenda){
+        Disciplinas[position].style.setProperty('font-size', '0.7vw');
+    }
     Disciplinas[position].style.setProperty('background-color', 'rgba(0, 0, 0, 0.1)');
 }
 
@@ -199,7 +225,7 @@ var Close_BT_CCD = document.querySelector("dialog button");
 var Modal_Disciplinas = document.getElementById("Info_Disciplina");
 var Modal_CCDs = document.getElementById("Info_CCD");
 
-for(var i = 0; i < 4; i++){
+for(let i = 0; i < 4; i++){
     BT_CCD[i].onclick = function(){
         Modal_CCDs.showModal();
     }
