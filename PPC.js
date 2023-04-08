@@ -133,16 +133,22 @@ for(let i = 0; i < Disciplinas.length; i++){
         }
 
         if(Disciplinas[i].classList.contains("Requisita")){
+
             var Resultado = VerificaRequisito(i);
+
             for(let l = 0; l < Resultado.length; l++){
-                PseudoHover(l);
+                PseudoHover(Resultado[l]);
                 Carga_Horaria[Resultado[l]].style.setProperty('display', 'contents');
                 Legendas[Resultado[l]].style.setProperty('display', 'flex');
             }
+            PseudoHover(i);
+            Carga_Horaria[i].style.setProperty('display', 'contents');
+            Legendas[i].style.setProperty('display', 'flex');
+                
         }else{
-           Disciplinas[i].focus();
-           Carga_Horaria[i].style.setProperty('display', 'contents');
-           Legendas[i].style.setProperty('display', 'flex');
+            PseudoHover(i);
+            Carga_Horaria[i].style.setProperty('display', 'contents');
+            Legendas[i].style.setProperty('display', 'flex');
         }
 
     });
@@ -165,6 +171,9 @@ for(let i = 0; i < Disciplinas.length; i++){
 
             }
         }else{
+
+            BackToNormal(i);
+
             if(!display_CH){
                 Carga_Horaria[i].style.setProperty('display', 'none');
             }
@@ -172,11 +181,31 @@ for(let i = 0; i < Disciplinas.length; i++){
                 Legendas[i].style.setProperty('display', 'none');
             }
     
-            for(let j = 0; j < Semestres.length; j++){
-                Semestres[j].style.setProperty('border', '1px solid rgba(255, 255, 255, 0.4)'); 
-            }
+        }
+
+        for(let j = 0; j < Semestres.length; j++){
+            Semestres[j].style.setProperty('border', '1px solid rgba(255, 255, 255, 0.4)'); 
         }
 
     });
 
+}
+
+/*               Modals               */
+
+var BT_CCD = document.getElementsByClassName("BT_CCD");
+var Close_BT_CCD = document.querySelector("dialog button");
+
+var Modal_Disciplinas = document.getElementById("Info_Disciplina");
+var Modal_CCDs = document.getElementById("Info_CCD");
+
+for(var i = 0; i < 4; i++){
+    BT_CCD[i].onclick = function(){
+        Modal_CCDs.showModal();
+    }
+    
+}
+
+Close_BT_CCD.onclick = function(){
+    Modal_CCDs.close();
 }
