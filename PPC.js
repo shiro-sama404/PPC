@@ -19,22 +19,12 @@ BT_CH_Preview.addEventListener('click', function (evento) {
             display_CH = true;
         }
 
-        if(!display_Legenda){
-            for(let i = 0; i < Disciplinas.length; i++){
-                Disciplinas[i].style.setProperty('font-size', '0.55vw');
-            }
-        }
     }else{
         for(let i = 0; i < Carga_Horaria.length; i++){
             Carga_Horaria[i].style.setProperty('display', 'none')
             display_CH = false;
         } 
 
-        if(!display_Legenda){
-            for(let i = 0; i < Disciplinas.length; i++){
-                Disciplinas[i].style.setProperty('font-size', '0.65vw');
-            }
-        }
     }
 
 });
@@ -48,23 +38,12 @@ BT_SUB_Preview.addEventListener('click', () => {
             display_Legenda = true;
         }
 
-        if(!display_CH){
-            for(let i = 0; i < Disciplinas.length; i++){
-                Disciplinas[i].style.setProperty('font-size', '0.55vw');
-            }
-        }
-
     }else{
 
         for(let i = 0; i < Carga_Horaria.length; i++){
             Legendas[i].style.setProperty('display', 'none')
             display_Legenda = false;
         } 
-        if(!display_CH){
-            for(let i = 0; i < Disciplinas.length; i++){
-                Disciplinas[i].style.setProperty('font-size', '0.65vw');
-            }
-        }
 
     }
 
@@ -85,7 +64,7 @@ var Lista_Requisitos = [
     [13, 7, -1],
     [16, 8, -1],
     [17, 8, 7],
-    [18, 9, 7],
+    [18, 9, 2],
     [21, 15, 7],
     [22, 11, 13],
     [23, 18, -1],
@@ -133,16 +112,14 @@ function VerificaRequisito(position){
 function PseudoHover(position){
     Disciplinas[position].style.setProperty('height', '20%');
     Disciplinas[position].style.setProperty('width', '100%');
-    Disciplinas[position].style.setProperty('font-size', '0.6vw');
+    Disciplinas[position].style.setProperty('font-size', '0.73vw');
     Disciplinas[position].style.setProperty('background-color', 'rgba(255,255, 255, 0.1)');
 }
 
 function BackToNormal(position){
     Disciplinas[position].style.setProperty('height', '17%');
     Disciplinas[position].style.setProperty('width', '80%');
-    if(!display_CH && !display_Legenda){
-        Disciplinas[position].style.setProperty('font-size', '0.7vw');
-    }
+    Disciplinas[position].style.setProperty('font-size', '0.57vw');
     Disciplinas[position].style.setProperty('background-color', 'rgba(0, 0, 0, 0.1)');
 }
 
@@ -151,11 +128,17 @@ for(let i = 0; i < Disciplinas.length; i++){
     Disciplinas[i].addEventListener('mouseenter', () => {
 
         if(i < 25){
-            Semestres[Math.floor(i/5)].style.setProperty('border', '2px solid rgba(255, 255, 255, 0.6)');
+            Semestres[Math.floor(i/5)].style.setProperty('border', '0.3vh solid rgba(255, 255, 255, 0.6)');
+            Semestres[Math.floor(i/5)].style.setProperty('background', 'rgba(255, 255, 255, 0.1)');
+
         }else if(i < 29){
-            Semestres[5].style.setProperty('border', '2px solid rgba(255, 255, 255, 0.6)');
+            Semestres[5].style.setProperty('border', '0.3vh solid rgba(255, 255, 255, 0.6)');
+            Semestres[5].style.setProperty('background', 'rgba(255, 255, 255, 0.1)');
+
         }else{
-            Semestres[6].style.setProperty('border', '2px solid rgba(255, 255, 255, 0.6)');
+            Semestres[6].style.setProperty('border', '0.3vh solid rgba(255, 255, 255, 0.6)');
+            Semestres[6].style.setProperty('background', 'rgba(255, 255, 255, 0.1)');
+
         }
 
         if(Disciplinas[i].classList.contains("Requisita")){
@@ -210,7 +193,8 @@ for(let i = 0; i < Disciplinas.length; i++){
         }
 
         for(let j = 0; j < Semestres.length; j++){
-            Semestres[j].style.setProperty('border', '1px solid rgba(255, 255, 255, 0.4)'); 
+            Semestres[j].style.setProperty('border', '0.3vh solid rgba(255, 255, 255, 0.4)'); 
+            Semestres[j].style.setProperty('background', 'rgba(0, 0, 0, 0.1)');
         }
 
     });
@@ -225,7 +209,7 @@ var Close_BT_CCD = document.querySelector("dialog button");
 var Modal_Disciplinas = document.getElementById("Info_Disciplina");
 var Modal_CCDs = document.getElementById("Info_CCD");
 
-for(let i = 0; i < 4; i++){
+for(let i = 0; i < 5; i++){
     BT_CCD[i].onclick = function(){
         Modal_CCDs.showModal();
     }
