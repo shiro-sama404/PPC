@@ -213,7 +213,7 @@ label h1{
     width: 0.6vw;
     height: 100%;
     transform: skewX(45deg) translateX(7vw);
-    transition: .5s;
+    transition: .4s;
 }
 
 .Disciplina:hover{
@@ -366,7 +366,7 @@ label h1{
 
 #Componentes{
     height: 65%;
-    background: linear-gradient(#ff003731, #ff0037);
+    background: linear-gradient(#ff003700, #ff0037);
     padding-top: 5vh;
 }
 
@@ -419,11 +419,11 @@ label h1{
     width: 1vw;
     height: 100%;
     transform: skewX(-45deg) translateX(10vw);
-    transition: 0.5s;
+    transition: 0.4s;
 }
 
 .CCD:hover::before{
-    background-color: rgba(255, 255, 255, 0.5);
+    background-color: rgba(255, 255, 255, 0.2);
     transform: skewX(-45deg) translateX(-30vw);
 }
 
@@ -458,21 +458,23 @@ label h1{
     width: 70%;
     height: 50vh;
     padding: 1%;
-    background: rgba(226, 236, 241, 0.8);
-    border: none;
+    background: rgba(255, 255, 255, 0.1);
+    border: 0.2vh solid rgba(255, 255, 255, 0.5);
+    border-top: 0.4vh solid rgba(255, 255, 255, 0.8);
+    border-left: 0.4vh solid rgba(255, 255, 255, 0.8);
     border-radius: 2vh;
     flex-direction: column;
     align-items: center;
     justify-content:end;
-    color: rgb(0, 0, 0);
+    color: rgb(255, 255, 255);
     font-family: 'Nunito', sans-serif;
     font-size: 2vw;
     box-shadow: 0 0 1em rgba(0, 0, 0, 0.3);
+    backdrop-filter: blur(5px);
 }
 
 #Info_CCD::backdrop{
     background: rgba(0, 0, 0, 0.5);
-    backdrop-filter: blur(2px);
 }
 
 #Info_CCD button{
@@ -480,11 +482,11 @@ label h1{
     width: 15%;
     height: 10%;
     background: none;
-    border: 0.3vh solid rgba(0, 0, 0, 0.2);
-    border-radius: 0.3vh;
+    border: 0.3vh solid rgba(255, 255, 255, 0.4);
+    border-radius: 1vh;
     font-family: 'Poppins', sans-serif;
     font-size: 1vw;
-    color: #000000;
+    color: #ffffff;
     transition: .5s;
 }
 
